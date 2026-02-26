@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ─── Design Tokens ─────────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Base */
+  --color-background: #ffffff;
+  --color-foreground: #0d0d0d;
+
+  /* Brand */
+  --color-ink: #0d0d0d;
+  --color-ink-muted: #3a3a3a;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f3ef;
+  --color-surface-dark: #0d0d0d;
+
+  /* Accent — forest/sage green, restrained */
+  --color-accent: #3b6e52;
+  --color-accent-light: #4e8f6a;
+  --color-accent-muted: #d4e6da;
+
+  /* Borders */
+  --color-border: #e5e2dc;
+  --color-border-dark: #2a2a2a;
+
+  /* Fonts — Playfair Display (display/headings) + DM Sans (body) */
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+
+  /* Spacing scale extensions */
+  --spacing-section: 5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Base Styles ────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* ─── Typography ─────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.1;
+  /* Playfair Display has natural optical spacing — minimal tracking adjustment */
+  letter-spacing: -0.01em;
+}
+
+/* ─── Utilities ──────────────────────────────────────────────── */
+.section-pad {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+/* Subtle noise texture for dark sections */
+.texture-dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
 }
