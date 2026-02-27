@@ -9,8 +9,8 @@ const navLinks = [
 ]
 
 const socialLinks = [
-  { href: 'https://www.tiktok.com/@the.nigerian1', label: 'TikTok' },
-  { href: 'https://www.instagram.com/the.nigerian1', label: 'Instagram' },
+  { href: 'https://www.tiktok.com/@the.nigerian1/', label: 'TikTok' },
+  { href: 'https://www.instagram.com/the.nigerian1/', label: 'Instagram' },
   { href: 'https://www.youtube.com/@THENIGERIAN.1', label: 'YouTube' },
 ]
 
