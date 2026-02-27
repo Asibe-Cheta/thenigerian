@@ -3,6 +3,7 @@ import HeroSection from './_sections/HeroSection'
 import TikTokSection from './_sections/TikTokSection'
 import ContentPreviewSection from './_sections/ContentPreviewSection'
 import BookCTASection from './_sections/BookCTASection'
+import DonateSection from './_sections/DonateSection'
 
 export const metadata: Metadata = {
   title: 'The Nigerian — Pidgin, Naija Food & Culture',
@@ -17,6 +18,7 @@ export default function HomePage() {
       <TikTokSection />
       <ContentPreviewSection />
       <BookCTASection />
+      <DonateSection />
     </>
   )
 }

@@ -4,6 +4,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/learn', label: 'Learn' },
   { href: '/book', label: 'The Book' },
+  { href: '/donate', label: 'Support' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ]
