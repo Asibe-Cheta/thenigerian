@@ -26,6 +26,9 @@ export async function POST() {
           'SE', 'NO', 'DK', 'FI', 'IT', 'ES', 'PT',
         ],
       },
+      phone_number_collection: {
+        enabled: true,
+      },
       shipping_options: [
         {
           shipping_rate_data: {

@@ -19,6 +19,7 @@ create table if not exists book_orders (
   stripe_payment_intent_id    text unique not null,
   customer_name               text not null,
   customer_email              text not null,
+  customer_phone              text,
   shipping_name               text not null,
   shipping_address_line1      text not null,
   shipping_address_line2      text,

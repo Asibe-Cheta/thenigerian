@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
 import { createClient } from '@supabase/supabase-js'
+import { sendOrderNotification } from '@/lib/email'
 import type Stripe from 'stripe'
 
 // Supabase admin client (service role — server-only, never expose)
@@ -46,10 +47,11 @@ export async function POST(req: NextRequest) {
 
     const supabase = getSupabaseAdmin()
 
-    const { error } = await supabase.from('book_orders').insert({
+    const orderData = {
       stripe_payment_intent_id: session.payment_intent as string,
       customer_name: customer.name ?? '',
       customer_email: customer.email ?? '',
+      customer_phone: customer.phone ?? null,
       shipping_name: shipping.name ?? customer.name ?? '',
       shipping_address_line1: shipping.address.line1 ?? '',
       shipping_address_line2: shipping.address.line2 ?? null,
@@ -59,11 +61,34 @@ export async function POST(req: NextRequest) {
       shipping_country: shipping.address.country ?? '',
       amount_paid: session.amount_total ?? 0,
       status: 'paid',
-    })
+    }
+
+    const { error } = await supabase.from('book_orders').insert(orderData)
 
     if (error) {
       console.error('[webhook] supabase insert error', error)
       return NextResponse.json({ error: 'DB insert failed' }, { status: 500 })
+    }
+
+    // Email notification to the creator
+    try {
+      await sendOrderNotification({
+        customerName: orderData.customer_name,
+        customerEmail: orderData.customer_email,
+        customerPhone: orderData.customer_phone,
+        shippingName: orderData.shipping_name,
+        shippingLine1: orderData.shipping_address_line1,
+        shippingLine2: orderData.shipping_address_line2,
+        shippingCity: orderData.shipping_city,
+        shippingState: orderData.shipping_state,
+        shippingPostalCode: orderData.shipping_postal_code,
+        shippingCountry: orderData.shipping_country,
+        amountPaid: orderData.amount_paid,
+        stripePaymentIntentId: orderData.stripe_payment_intent_id,
+      })
+    } catch (emailErr) {
+      // Don't fail the webhook — order is saved, just log the email failure
+      console.error('[webhook] email notification failed', emailErr)
     }
   }
 

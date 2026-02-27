@@ -4,11 +4,10 @@ import { motion } from 'framer-motion'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Button from '@/components/ui/Button'
 
-// Placeholder TikTok video IDs — replace with real ones from @the.nigerian1
 const TIKTOK_VIDEOS = [
-  { id: '7292347856291934470', caption: 'Pidgin Word: DEY' },
-  { id: '7316702451029188870', caption: 'Nigerian Pidgin Book 📕📗' },
-  { id: '7305489012937821446', caption: 'Trouble dey school' },
+  { id: '7465002182136335649', caption: '@the.nigerian1' },
+  { id: '7601182966651358486', caption: '@the.nigerian1' },
+  { id: '7470959926748138774', caption: '@the.nigerian1' },
 ]
 
 export default function TikTokSection() {
