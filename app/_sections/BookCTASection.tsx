@@ -52,12 +52,12 @@ export default function BookCTASection() {
             transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="flex justify-center md:justify-end"
           >
-            <div className="w-56 md:w-64 shadow-[0_32px_80px_rgba(0,0,0,0.5)]">
+            <div className="w-full max-w-sm md:max-w-md shadow-[0_40px_100px_rgba(0,0,0,0.6)]">
               <Image
                 src="/images/book.png"
                 alt="Understanding Nigerian Pidgin Tenses — The Nigerian"
-                width={400}
-                height={600}
+                width={600}
+                height={900}
                 className="w-full h-auto"
               />
             </div>

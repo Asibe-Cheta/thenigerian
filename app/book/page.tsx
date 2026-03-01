@@ -97,12 +97,12 @@ export default function BookPage() {
               transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="flex justify-center md:justify-end"
             >
-              <div className="w-64 md:w-72 shadow-[0_32px_80px_rgba(0,0,0,0.6)]">
+              <div className="w-full max-w-sm md:max-w-md shadow-[0_40px_100px_rgba(0,0,0,0.7)]">
                 <Image
                   src="/images/book.png"
                   alt="Understanding Nigerian Pidgin Tenses — The Nigerian"
-                  width={480}
-                  height={720}
+                  width={600}
+                  height={900}
                   className="w-full h-auto"
                   priority
                 />
