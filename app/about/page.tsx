@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Button from '@/components/ui/Button'
 
@@ -9,8 +10,8 @@ export const metadata: Metadata = {
 }
 
 const socialLinks = [
-  { label: 'TikTok', href: 'https://www.tiktok.com/@the.nigerian1' },
-  { label: 'Instagram', href: 'https://www.instagram.com/the.nigerian1' },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@the.nigerian1/' },
+  { label: 'Instagram', href: 'https://www.instagram.com/the.nigerian1/' },
   { label: 'YouTube', href: 'https://www.youtube.com/@THENIGERIAN.1' },
 ]
 
@@ -33,36 +34,38 @@ export default function AboutPage() {
       <section className="bg-white py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-            {/* Photo placeholder */}
+            {/* Photo */}
             <div className="sticky top-28">
-              <div
-                className="w-full aspect-[4/5] bg-[#f5f3ef] rounded-sm overflow-hidden flex items-center justify-center"
-                style={{
-                  background:
-                    'linear-gradient(135deg, #1a3d2b 0%, #2d5a3f 60%, #3b6e52 100%)',
-                }}
-              >
-                {/* Replace with actual Image component once photo is available */}
-                <span className="text-white/20 text-6xl font-black uppercase tracking-tight">TN</span>
+              <div className="w-full aspect-[4/5] rounded-sm overflow-hidden">
+                <Image
+                  src="/images/founder.jpg"
+                  alt="Atoche J Ugbenyo — The Nigerian"
+                  className="w-full h-full object-cover object-top"
+                  width={800}
+                  height={1000}
+                  priority
+                />
               </div>
             </div>
 
             {/* Bio */}
             <div>
               <h2 className="text-4xl md:text-5xl font-black text-[#0d0d0d] mb-8 leading-tight">
-                From Lagos to your screen —<br />
+                From the streets to your screen —<br />
                 <span className="text-[#3b6e52]">one Pidgin word at a time.</span>
               </h2>
 
               <div className="space-y-5 text-[#3a3a3a] text-base leading-relaxed">
                 <p>
-                  The Nigerian is a Nigerian content creator, author, and cultural educator
-                  known for making Nigerian Pidgin English accessible, funny, and deeply
-                  meaningful to audiences both in Nigeria and the diaspora.
+                  Atoche J Ugbenyo (Popularly known as &ldquo;The Nigerian&rdquo;) is a Nigerian
+                  content creator, author, and cultural educator known for making Nigerian Pidgin
+                  English accessible, funny, and deeply meaningful to audiences both in Nigeria
+                  and the diaspora.
                 </p>
                 <p>
                   With over 26,000 Instagram followers and 19,000 TikTok followers, The Nigerian
-                  has built a community around three pillars: <strong className="text-[#0d0d0d]">Pidgin 101</strong>,{' '}
+                  has built a community around three pillars:{' '}
+                  <strong className="text-[#0d0d0d]">Pidgin 101</strong>,{' '}
                   <strong className="text-[#0d0d0d]">Naija Food Poetry</strong>, and{' '}
                   <strong className="text-[#0d0d0d]">Growing Up Naija</strong> — content that
                   triggers memory, provokes laughter, and teaches without feeling like a lesson.
@@ -74,9 +77,9 @@ export default function AboutPage() {
                   they come from.
                 </p>
                 <p>
-                  The Nigerian Pidgin Book — his debut publication — is the natural extension of
-                  that mission. A physical artefact for the culture. A reference. A love letter
-                  to the language.
+                  <em>Understanding Nigerian Pidgin Tenses</em> — his debut publication — is the
+                  natural extension of that mission. A physical artefact for the culture. A
+                  reference. A love letter to the language.
                 </p>
               </div>
 
@@ -107,8 +110,28 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* What he covers */}
+      {/* The Book */}
       <section className="bg-[#f5f3ef] py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="max-w-2xl">
+            <p className="text-[#3b6e52] text-xs font-bold uppercase tracking-widest mb-4">
+              The Book
+            </p>
+            <h2 className="text-4xl md:text-5xl font-black text-[#0d0d0d] mb-6 leading-tight">
+              Understanding Nigerian Pidgin Tenses<span className="text-[#3b6e52]">.</span>
+            </h2>
+            <p className="text-[#3a3a3a] text-base leading-relaxed mb-8">
+              Everything you need to speak, understand, and appreciate Nigerian Pidgin English
+              Tenses. From basic vocabulary to the most complex structure — written with
+              authenticity, humour, and love for the language.
+            </p>
+            <Button href="/book" size="lg">Get Your Copy</Button>
+          </div>
+        </div>
+      </section>
+
+      {/* What he covers */}
+      <section className="bg-white py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <SectionHeading
             eyebrow="Content Pillars"
@@ -133,7 +156,7 @@ export default function AboutPage() {
                 body: 'Throwback stories from a Nigerian childhood — NEPA, school, family, and the beautiful chaos of it all.',
               },
             ].map(({ icon, title, body }) => (
-              <div key={title} className="bg-[#f5f3ef] p-8 md:p-10">
+              <div key={title} className="bg-white p-8 md:p-10">
                 <span className="text-3xl">{icon}</span>
                 <h3 className="text-xl font-black text-[#0d0d0d] mt-4 mb-3">{title}</h3>
                 <p className="text-sm text-[#3a3a3a] leading-relaxed">{body}</p>

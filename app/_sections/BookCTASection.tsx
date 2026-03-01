@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Button from '@/components/ui/Button'
 
@@ -43,7 +44,7 @@ export default function BookCTASection() {
             </Button>
           </motion.div>
 
-          {/* Book visual placeholder */}
+          {/* Book image */}
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -51,39 +52,14 @@ export default function BookCTASection() {
             transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="flex justify-center md:justify-end"
           >
-            <div className="relative w-56 md:w-64">
-              {/* Book spine shadow */}
-              <div className="absolute -left-3 top-2 bottom-2 w-3 bg-[#2a4a39] rounded-l-sm" />
-              {/* Book cover */}
-              <div
-                className="relative rounded-r-sm overflow-hidden shadow-2xl"
-                style={{
-                  aspectRatio: '2/3',
-                  background: 'linear-gradient(135deg, #1a3d2b 0%, #2d5a3f 50%, #3b6e52 100%)',
-                }}
-              >
-                {/* Cover content */}
-                <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                  <div>
-                    <p className="text-[#d4e6da] text-[10px] font-bold uppercase tracking-widest">
-                      The Nigerian
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-white text-2xl font-black leading-tight">
-                      Nigerian
-                      <br />
-                      Pidgin
-                      <br />
-                      Book
-                    </h3>
-                    <div className="mt-4 flex gap-1">
-                      <span className="text-2xl">📕</span>
-                      <span className="text-2xl">📗</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="w-56 md:w-64 shadow-[0_32px_80px_rgba(0,0,0,0.5)]">
+              <Image
+                src="/images/book.png"
+                alt="Understanding Nigerian Pidgin Tenses — The Nigerian"
+                width={400}
+                height={600}
+                className="w-full h-auto"
+              />
             </div>
           </motion.div>
         </div>

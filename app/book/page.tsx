@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Button from '@/components/ui/Button'
 import SectionHeading from '@/components/ui/SectionHeading'
@@ -89,39 +90,22 @@ export default function BookPage() {
               </div>
             </motion.div>
 
-            {/* Book visual */}
+            {/* Book image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="flex justify-center md:justify-end"
             >
-              <div className="relative w-64 md:w-72">
-                <div className="absolute -left-4 top-3 bottom-3 w-4 bg-[#1a3d2b] rounded-l-sm shadow-xl" />
-                <div
-                  className="relative rounded-r-sm overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.6)]"
-                  style={{
-                    aspectRatio: '2/3',
-                    background:
-                      'linear-gradient(135deg, #1a3d2b 0%, #2d5a3f 50%, #3b6e52 100%)',
-                  }}
-                >
-                  <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                    <p className="text-[#d4e6da]/70 text-xs font-bold uppercase tracking-widest">
-                      The Nigerian
-                    </p>
-                    <div>
-                      <h2 className="text-white text-3xl font-black leading-tight mb-4">
-                        Nigerian
-                        <br />
-                        Pidgin
-                        <br />
-                        Book
-                      </h2>
-                      <span className="text-3xl">📕📗</span>
-                    </div>
-                  </div>
-                </div>
+              <div className="w-64 md:w-72 shadow-[0_32px_80px_rgba(0,0,0,0.6)]">
+                <Image
+                  src="/images/book.png"
+                  alt="Understanding Nigerian Pidgin Tenses — The Nigerian"
+                  width={480}
+                  height={720}
+                  className="w-full h-auto"
+                  priority
+                />
               </div>
             </motion.div>
           </div>
