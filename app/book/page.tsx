@@ -99,7 +99,7 @@ export default function BookPage() {
             >
               <div className="w-full shadow-[0_40px_100px_rgba(0,0,0,0.7)]">
                 <Image
-                  src="/images/book.png"
+                  src="/images/book2.png"
                   alt="Understanding Nigerian Pidgin Tenses — The Nigerian"
                   width={800}
                   height={1200}
